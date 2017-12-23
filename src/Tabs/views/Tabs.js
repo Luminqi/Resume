@@ -1,17 +1,18 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Tabs } from 'antd';
-import { changetab } from '../actions.js'
-import Tech from './Technique.js'
-import Education from './Education.js'
+import { changetab } from '../actions.js';
+import { injectIntl, FormattedMessage } from 'react-intl';
+import Tech from './Technique.js';
+import Education from './Education.js';
 const TabPane = Tabs.TabPane;
 
 const newTabs = ({storedKey, onChangeTab}) => {
     return (
         <Tabs activeKey={storedKey} onChange={(key) => { onChangeTab(key); }} type="card">
-            <TabPane tab="Tab 1" key="1"><Tech /></TabPane>
-            <TabPane tab="Tab 2" key="2"><Education /></TabPane>
-            <TabPane tab="Tab 3" key="3">Content of Tab Pane 3</TabPane>
+            <TabPane tab={<FormattedMessage id="tab.ability" defaultMessage="Abilities" />} key="1"><Tech /></TabPane>
+            <TabPane tab={<FormattedMessage id="tab.education" defaultMessage="Education" />} key="2"><Education /></TabPane>
+            <TabPane tab={<FormattedMessage id="tab.work" defaultMessage="Work Experience" />} key="3">Content of Tab Pane 3</TabPane>
         </Tabs>
     );
 };
@@ -27,4 +28,4 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     }
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(newTabs);
+export default injectIntl(connect(mapStateToProps, mapDispatchToProps)(newTabs));

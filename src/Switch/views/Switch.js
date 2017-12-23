@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Switch } from 'antd';
-import { injectIntl, FormattedMessage } from 'react-intl'
+import { injectIntl, FormattedMessage } from 'react-intl';
 import { changelocale } from '../actions.js';
 import en_US from '../../Locales/en-US.js';
 import zh_CN from '../../Locales/zh-CN.js';
