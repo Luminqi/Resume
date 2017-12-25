@@ -2,16 +2,19 @@ import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { reducer as switchReducer } from './Switch/';
 import { reducer as changetabReducer } from './Tabs/';
 import { reducer as dialogReducer } from './Dialog/';
-import { createEpicMiddleware } from 'redux-observable';
-import showContentEpic from './Epics/epics.js';
-
+import { reducer as messageReducer } from './Message/';
+import { combineEpics, createEpicMiddleware } from 'redux-observable';
+import showContentEpic from './Epics/showContentEpic.js';
+import submitMessageEpic from './Epics/submitMessageEpic.js';
 
 const reducer = combineReducers({
     lang: switchReducer,
     tabKey: changetabReducer,
-    dialog: dialogReducer
+    dialog: dialogReducer,
+    message: messageReducer
 });
-const epicMiddleware = createEpicMiddleware(showContentEpic);
+const epic = combineEpics(showContentEpic, submitMessageEpic)
+const epicMiddleware = createEpicMiddleware(epic);
 
 export default createStore(reducer, applyMiddleware(epicMiddleware));
 
@@ -31,5 +34,9 @@ export default createStore(reducer, applyMiddleware(epicMiddleware));
 //         title: 'React',
 //         progress: 'loading'||'error'||'complete',
 //         content: ''
+//     }
+//     message: {
+//         name: 'Simon',
+//         comment: 'good',
 //     }
 // }

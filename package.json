@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "antd": "^3.0.2",
+    "pouchdb": "^6.4.1",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-intl": "^2.4.0",

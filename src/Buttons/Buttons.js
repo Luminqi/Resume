@@ -40,7 +40,7 @@ import { connect } from 'react-redux';
 const Buttons = ({storedKey, onChangeTab}) => {
     return (
         <React.Fragment>
-            <Icon type="double-right" className="icon-dr" style={{display: storedKey === "3" ? "none" : "block"}}
+            <Icon type="double-right" className="icon-dr" style={{display: storedKey === "4" ? "none" : "block"}}
                   onClick={onChangeTab((parseInt(storedKey, 10) + 1).toString())} />
             <Icon type="double-left" className="icon-dl" style={{display: storedKey === "1" ? "none" : "block"}}
                   onClick={onChangeTab((parseInt(storedKey, 10) - 1).toString())} />
@@ -57,7 +57,7 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
         onChangeTab: (key) => () => dispatch(changetab(key))
-    }
+    };
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Buttons);

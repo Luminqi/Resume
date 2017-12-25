@@ -1,8 +1,8 @@
 import React from 'react';
-import { Textarea } from 'antd';
+import { view as Message } from '../../Message/';
 
-const Intro = () => {
+export default () => {
     return (
-        <Textarea placeholder="Autosize" />
+        <Message />
     );
 };
