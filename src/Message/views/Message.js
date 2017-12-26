@@ -1,7 +1,8 @@
 import React from 'react';
-import { Input, Icon, Button } from 'antd';
+import { Input, Icon, Button, message, Badge, Spin } from 'antd';
 import { modify, submit } from '../actions.js';
 import { connect } from 'react-redux';
+import { actions as dialogActions } from '../../Dialog/'
 
 const { TextArea } = Input;
 
@@ -102,9 +103,9 @@ class Message extends React.Component {
     }
     onClickButton = () => {
         if( !this.props.name ) {
-            this.setState({ suffix: <span style={{ color: 'red' }}>Name is required!</span> });
+            this.setState({ suffix: <span style={{ color: 'red' }}>Name required</span> });
         } else if ( !this.props.comment ) {
-            this.props.onModify({ comment: "Please input comment"});
+            message.info('Please input comment');
         } else {
             this.props.onSubmit();
         }
@@ -115,6 +116,7 @@ class Message extends React.Component {
             <div className="comment">
             <span>Leave your comment:</span>
             <TextArea
+                className="textarea"
                 placeholder="Comment"
                 autosize={{ minRows: 2, maxRows: 4 }}
                 value={this.props.comment}
@@ -122,6 +124,7 @@ class Message extends React.Component {
             />
             <span>Name:</span>
             <Input
+                className="nameinput"
                 placeholder="Enter your name"
                 prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
                 suffix={suffix}
@@ -130,6 +133,11 @@ class Message extends React.Component {
                 ref={node => this.nameInput = node}
             />
             <Button type="primary" onClick={this.onClickButton}>Submit</Button>
+            <div className="msgicon">
+            <Badge count={this.props.count}>
+            <Icon type="message" style={{ fontSize:64 }} onClick={this.props.onInitialMessage} />
+            </Badge>
+            </div>
             </div>
         );
     }
@@ -138,12 +146,14 @@ const mapStateToProps = (state, ownProps) => {
     return {
         name: state.message.name,
         comment: state.message.comment,
+        count: state.message.count
     };
 } ;
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
         onModify: (obj) => dispatch(modify(obj)),
-        onSubmit: () => dispatch(submit())
+        onSubmit: () => dispatch(submit()),
+        onInitialMessage: () => dispatch(dialogActions.initialmessage(<Spin />))
     };
 };
 

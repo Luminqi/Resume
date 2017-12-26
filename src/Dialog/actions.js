@@ -1,4 +1,4 @@
-import { SHOWMODAL, HIDEMODAL, UPDATECONTENT } from './actionTypes';
+import { SHOWMODAL, HIDEMODAL, UPDATECONTENT, INITIALMESSAGE } from './actionTypes';
 
 const showmodal = (title, progress, content) => ({
     type: SHOWMODAL,
@@ -15,6 +15,12 @@ const updatecontent = (content) => ({
     type: UPDATECONTENT,
     content: content
 });
+const initialmessage = (content) => ({
+    type: INITIALMESSAGE,
+    visible: true,
+    title: 'Messages',
+    progress: 'loading',
+    content: content
+});
 
-
-export { showmodal, hidemodal, updatecontent };
+export { showmodal, hidemodal, updatecontent, initialmessage };

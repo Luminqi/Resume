@@ -1,21 +1,37 @@
 import { actions as messageActions } from '../Message/';
 import { actionTypes as messageActionTypes } from '../Message/';
 import { ofType } from 'redux-observable';
-import { mergeMap, map, mapTo, catchError, timestamp } from 'rxjs/operators';
+import { mergeMap, map, catchError, timestamp } from 'rxjs/operators';
 import { of } from 'rxjs/observable/of';
 import { fromPromise } from 'rxjs/observable/fromPromise';
-import PouchDB from 'pouchdb';
+import { message } from 'antd';
+import { txDb } from './pouchdb.js';
 
-const txDb = new PouchDB('http://127.0.0.1:5984/resume');
+
 const submitMessageEpic = (action$, store) =>
     action$.pipe(
         ofType(messageActionTypes.SUBMIT),
         map(action => ({...store.getState().message})),
+        map(obj => {
+            const {count, ...data} = obj;
+            return data;
+        }),
         timestamp(),
-        map(msg => ({...msg.value, date: msg.timestamp})),
+        map(msg => ({...msg.value, date: msg.timestamp, _id: msg.timestamp.toString()})),
         mergeMap(datedTx =>
-            fromPromise(txDb.post(datedTx)).pipe(
-                mapTo(messageActions.modify({ comment:'' }))
+            fromPromise(txDb.put(datedTx)).pipe(
+                map((res) => {
+                    message.success('Submit succeed');
+                    let count = store.getState().message.count + 1;
+                    return messageActions.modify({ comment:'', count: count });
+                }),
+                catchError((err) => {
+                    message.error('Server is not work');
+                    return of({
+                        type: 'SUBMIT_FAIL',
+                        error: err
+                    });
+                })
             )
         )
     );

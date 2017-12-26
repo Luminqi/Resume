@@ -40,3 +40,25 @@
     top: 24px;
     right: 128px;
 }
+
+.comment {
+    min-height: 256px;
+    padding: 0 72px;
+    position: relative;
+}
+
+.textarea {
+    margin: 16px 0;
+}
+
+.nameinput {
+   max-width: 256px;
+   margin: 0 16px;
+}
+
+.msgicon {
+    padding: 16px;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}

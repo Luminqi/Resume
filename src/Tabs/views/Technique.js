@@ -1,6 +1,5 @@
 import React from 'react';
 import { Popover, Button, Spin} from 'antd';
-import { view as Dialog } from '../../Dialog/';
 import { actions as dialogActions } from '../../Dialog/';
 import { connect } from 'react-redux';
 
@@ -12,7 +11,6 @@ const Tech = ({ onshowDialog }) => {
     };
     return (
         <React.Fragment>
-        <Dialog />
         <Popover content={content('Javascript')}>
         <Button type="primary">Javascript</Button>
         </Popover>

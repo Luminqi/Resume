@@ -4,6 +4,8 @@ import Menu from '../Menu/Menu.js';
 import { view as Tabs } from '../Tabs/';
 import Buttons from '../Buttons/Buttons.js';
 import { view as Switch } from '../Switch/';
+import { view as Dialog } from '../Dialog/';
+
 import './Layout.css'
 
 const { Content, Footer, Sider, } = Layout;
@@ -24,6 +26,7 @@ export default () => {
             </Sider>
             <Layout>
                 <Content className="content">
+                    <Dialog />
                     <Switch />
                     <Buttons />
                     <div>

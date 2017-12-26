@@ -6,6 +6,7 @@ import { reducer as messageReducer } from './Message/';
 import { combineEpics, createEpicMiddleware } from 'redux-observable';
 import showContentEpic from './Epics/showContentEpic.js';
 import submitMessageEpic from './Epics/submitMessageEpic.js';
+import showMessageEpic from './Epics/showMessageEpic.js';
 
 const reducer = combineReducers({
     lang: switchReducer,
@@ -13,7 +14,7 @@ const reducer = combineReducers({
     dialog: dialogReducer,
     message: messageReducer
 });
-const epic = combineEpics(showContentEpic, submitMessageEpic)
+const epic = combineEpics(showContentEpic, submitMessageEpic, showMessageEpic);
 const epicMiddleware = createEpicMiddleware(epic);
 
 export default createStore(reducer, applyMiddleware(epicMiddleware));
@@ -38,5 +39,6 @@ export default createStore(reducer, applyMiddleware(epicMiddleware));
 //     message: {
 //         name: 'Simon',
 //         comment: 'good',
+//         count: 1
 //     }
 // }
