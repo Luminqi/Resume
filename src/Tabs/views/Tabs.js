@@ -6,6 +6,8 @@ import { injectIntl, FormattedMessage } from 'react-intl';
 import Tech from './Technique.js';
 import Education from './Education.js';
 import Intro from './Intro.js';
+import Work from './Work.js';
+
 const TabPane = Tabs.TabPane;
 
 const newTabs = ({storedKey, onChangeTab}) => {
@@ -13,7 +15,7 @@ const newTabs = ({storedKey, onChangeTab}) => {
         <Tabs activeKey={storedKey} onChange={(key) => { onChangeTab(key); }} type="card">
             <TabPane tab={<FormattedMessage id="tab.ability" defaultMessage="Abilities" />} key="1"><Tech /></TabPane>
             <TabPane tab={<FormattedMessage id="tab.education" defaultMessage="Education" />} key="2"><Education /></TabPane>
-            <TabPane tab={<FormattedMessage id="tab.work" defaultMessage="Work Experience" />} key="3">work experience</TabPane>
+            <TabPane tab={<FormattedMessage id="tab.work" defaultMessage="Work Experience" />} key="3"><Work /></TabPane>
             <TabPane tab={<FormattedMessage id="tab.selfassessment" defaultMessage="Self-assessment" />} key="4"><Intro /></TabPane>
         </Tabs>
     );

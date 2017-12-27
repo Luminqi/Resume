@@ -11,5 +11,12 @@ export default {
     'tab.ability': 'Abilities',
     'tab.education': 'Education',
     'tab.work': 'Work Experience',
-    'tab.selfassessment': 'Self-assessment'
+    'tab.selfassessment': 'Self-assessment',
+    'edu.enter': 'Entered into Nanjing Normal University',
+    'edu.award': 'Won College 2nd Award',
+    'edu.graduate': "Graduated(BACHELOR)",
+    'edu.uk.enter': 'Entered into Northumbria University',
+    'edu.uk.award': 'Won E&E DEANS AWARD',
+    'edu.uk.graduate': 'Graduated(BACHELOR with FIRST CLASS HONOURS)'
+
 };

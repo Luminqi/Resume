@@ -26,7 +26,7 @@ const submitMessageEpic = (action$, store) =>
                     return messageActions.modify({ comment:'', count: count });
                 }),
                 catchError((err) => {
-                    message.error('Server is not work');
+                    message.error('Try later... Server isn\'t working now');
                     return of({
                         type: 'SUBMIT_FAIL',
                         error: err

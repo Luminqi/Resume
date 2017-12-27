@@ -11,5 +11,11 @@ export default {
     'tab.ability': '技能',
     'tab.education': '教育经历',
     'tab.work': '工作经历',
-    'tab.selfassessment': '自我评价'
+    'tab.selfassessment': '自我评价',
+    'edu.enter': '进入南京师范大学',
+    'edu.award': '获得院校级二等奖学金',
+    'edu.graduate': "毕业(学士学位)",
+    'edu.uk.enter': '进入英国诺森比亚大学',
+    'edu.uk.award': '获得电气工程学院校长奖学金',
+    'edu.uk.graduate': '毕业(一等学士学位)'
 };

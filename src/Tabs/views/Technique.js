@@ -6,19 +6,39 @@ import { connect } from 'react-redux';
 const Tech = ({ onshowDialog }) => {
     const content = (title) => {
         return (
-            <Button icon="search" onClick={onshowDialog(title)}>Search on website</Button>
+            <Button icon="search" onClick={onshowDialog(title)}>Search</Button>
         );
     };
     return (
         <React.Fragment>
         <Popover content={content('Javascript')}>
-        <Button type="primary">Javascript</Button>
+        <Button type="primary" className="skill-btn">Javascript(ES6)</Button>
         </Popover>
+        <Popover content={content('CSS')}>
+        <Button type="primary" className="skill-btn">CSS(CSS3)</Button>
+        </Popover>
+        <Popover content={content('HTML')}>
+        <Button type="primary" className="skill-btn">HTML</Button>
+        </Popover>
+        <br />
+        <Popover content={content('jQuery')}>
+        <Button type="primary" className="skill-btn">jQuery</Button>
+        </Popover>
+        <Popover content={content('Bootstrap')}>
+        <Button type="primary" className="skill-btn">Bootstrap</Button>
+        </Popover>
+        <Popover content={content('LESS')}>
+        <Button type="primary" className="skill-btn">LESS</Button>
+        </Popover>
+        <br />
         <Popover content={content('React')}>
-        <Button type="primary">React</Button>
+        <Button type="primary" className="skill-btn">React</Button>
         </Popover>
         <Popover content={content('Redux')}>
-        <Button type="primary">Redux</Button>
+        <Button type="primary" className="skill-btn">Redux</Button>
+        </Popover>
+        <Popover content={content('Rxjs')}>
+        <Button type="primary" className="skill-btn">Rxjs</Button>
         </Popover>
         </React.Fragment>
     );

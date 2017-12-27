@@ -62,3 +62,11 @@
     right: 0;
     bottom: 0;
 }
+
+.timeline {
+    padding: 72px;
+}
+
+.skill-btn {
+    margin: 16px 32px;
+}

@@ -5,6 +5,7 @@ import { actions as messageActions } from '../Message/';
 import { ofType } from 'redux-observable';
 import { switchMap, mergeMap, catchError } from 'rxjs/operators';
 import { fromPromise } from 'rxjs/observable/fromPromise';
+import { of } from 'rxjs/observable/of';
 import { List } from 'antd';
 import { txDb } from './pouchdb.js';
 
@@ -45,7 +46,7 @@ const showMessageEpic = (action$) =>
                 descending: true
             })).pipe(
                 mergeMap((res) => [dialogActions.updatecontent(msgList(res.rows)), messageActions.modify({count: 0})]),
-                catchError((err) => dialogActions.updatecontent(<span>err</span>))
+                catchError((err) => of(dialogActions.updatecontent(<span>Try later... Server is not working now</span>)))
                 )
         )
     );
