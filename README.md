@@ -1,7 +1,5 @@
-This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
+A resume demo base on [Create React App](https://github.com/facebookincubator/create-react-app).
 
-Create a resume demo:  
-Scaffold: [Create React App](https://github.com/facebookincubator/create-react-app).  
-Repositories: [React](https://github.com/facebook/react).
+Demonstration: http://resume.luminqi.com
               
 
