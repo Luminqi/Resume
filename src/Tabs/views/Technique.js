@@ -10,7 +10,7 @@ const Tech = ({ onshowDialog }) => {
         );
     };
     return (
-        <React.Fragment>
+        <div className="skill">
         <Popover content={content('Javascript')}>
         <Button type="primary" className="skill-btn">Javascript(ES6)</Button>
         </Popover>
@@ -20,17 +20,16 @@ const Tech = ({ onshowDialog }) => {
         <Popover content={content('HTML')}>
         <Button type="primary" className="skill-btn">HTML</Button>
         </Popover>
-        <br />
         <Popover content={content('jQuery')}>
         <Button type="primary" className="skill-btn">jQuery</Button>
         </Popover>
+        <br />
         <Popover content={content('Bootstrap')}>
         <Button type="primary" className="skill-btn">Bootstrap</Button>
         </Popover>
         <Popover content={content('LESS')}>
         <Button type="primary" className="skill-btn">LESS</Button>
         </Popover>
-        <br />
         <Popover content={content('React')}>
         <Button type="primary" className="skill-btn">React</Button>
         </Popover>
@@ -40,7 +39,7 @@ const Tech = ({ onshowDialog }) => {
         <Popover content={content('Rxjs')}>
         <Button type="primary" className="skill-btn">Rxjs</Button>
         </Popover>
-        </React.Fragment>
+        </div>
     );
 }
 

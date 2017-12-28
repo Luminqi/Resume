@@ -17,6 +17,14 @@ export default {
     'edu.graduate': "Graduated(BACHELOR)",
     'edu.uk.enter': 'Entered into Northumbria University',
     'edu.uk.award': 'Won E&E DEANS AWARD',
-    'edu.uk.graduate': 'Graduated(BACHELOR with FIRST CLASS HONOURS)'
-
+    'edu.uk.graduate': 'Graduated(BACHELOR with FIRST CLASS HONOURS)',
+    'work.title': 'CHINA COMSERVICE',
+    'work.content1': 'Deal with the failure of the upper network equipment',
+    'work.content2': 'Optimize mobile 3G/4G signal',
+    'work.content3': 'Responsible for the operation and maintenance of base station',
+    'intro.content1': 'Love font-end and get excited about learning new things',
+    'intro.content2': 'Waiting for your contact',
+    'msg.comment': 'Leave your comment:',
+    'msg.name': 'Nickname:',
+    'msg.btn': 'Submit'
 };

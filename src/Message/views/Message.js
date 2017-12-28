@@ -3,6 +3,7 @@ import { Input, Icon, Button, message, Badge, Spin } from 'antd';
 import { modify, submit } from '../actions.js';
 import { connect } from 'react-redux';
 import { actions as dialogActions } from '../../Dialog/'
+import { injectIntl, FormattedMessage } from 'react-intl';
 
 const { TextArea } = Input;
 
@@ -114,7 +115,7 @@ class Message extends React.Component {
         const { suffix } = this.state;
         return (
             <div className="comment">
-            <span>Leave your comment:</span>
+            <span><FormattedMessage id="msg.comment" defaultMessage="Leave your comment:" /></span>
             <TextArea
                 className="textarea"
                 placeholder="Comment"
@@ -122,7 +123,7 @@ class Message extends React.Component {
                 value={this.props.comment}
                 onChange={this.onChangeComment}
             />
-            <span>Name:</span>
+            <span><FormattedMessage id="msg.name" defaultMessage="Nickname:" /></span>
             <Input
                 className="nameinput"
                 placeholder="Enter your name"
@@ -132,10 +133,10 @@ class Message extends React.Component {
                 onChange={this.onChangeUserName}
                 ref={node => this.nameInput = node}
             />
-            <Button type="primary" onClick={this.onClickButton}>Submit</Button>
+            <Button type="primary" onClick={this.onClickButton}><FormattedMessage id="msg.btn" defaultMessage="Submit" /></Button>
             <div className="msgicon">
             <Badge count={this.props.count}>
-            <Icon type="message" style={{ fontSize:64 }} onClick={this.props.onInitialMessage} />
+            <Icon className="msgicon-main" type="message" style={{ fontSize:64 }} onClick={this.props.onInitialMessage} />
             </Badge>
             </div>
             </div>
@@ -157,4 +158,4 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Message);
+export default injectIntl(connect(mapStateToProps, mapDispatchToProps)(Message));

@@ -2,12 +2,10 @@ import React from 'react';
 import { actions as dialogActions } from '../Dialog/';
 import { actionTypes as dialogActionTypes } from '../Dialog/';
 import { actions as messageActions } from '../Message/';
-import { ofType } from 'redux-observable';
-import { switchMap, mergeMap, catchError } from 'rxjs/operators';
-import { fromPromise } from 'rxjs/observable/fromPromise';
-import { of } from 'rxjs/observable/of';
 import { List } from 'antd';
 import { txDb } from './pouchdb.js';
+import moment from 'moment';
+import { ofType, switchMap, mergeMap, catchError, of, fromPromise } from './Rxjs-operator.js';
 
 const msgList = (data) => {
     const listdata = data.map(
@@ -15,7 +13,7 @@ const msgList = (data) => {
             key: item.doc._id,
             name: item.doc.name,
             comment: item.doc.comment,
-            date: item.doc.date
+            date: moment(item.doc.date).format('MM/DD/YYYY HH:mm')
         })
     );
     return (
@@ -42,7 +40,7 @@ const showMessageEpic = (action$) =>
         switchMap(action =>
             fromPromise(txDb.allDocs({
                 include_docs: true,
-                limit: 20,
+                limit: 50,
                 descending: true
             })).pipe(
                 mergeMap((res) => [dialogActions.updatecontent(msgList(res.rows)), messageActions.modify({count: 0})]),

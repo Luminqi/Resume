@@ -1,12 +1,8 @@
 import { actions as messageActions } from '../Message/';
 import { actionTypes as messageActionTypes } from '../Message/';
-import { ofType } from 'redux-observable';
-import { mergeMap, map, catchError, timestamp } from 'rxjs/operators';
-import { of } from 'rxjs/observable/of';
-import { fromPromise } from 'rxjs/observable/fromPromise';
 import { message } from 'antd';
 import { txDb } from './pouchdb.js';
-
+import { ofType, mergeMap, map, timestamp, catchError, of, fromPromise } from './Rxjs-operator.js'
 
 const submitMessageEpic = (action$, store) =>
     action$.pipe(

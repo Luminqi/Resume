@@ -12,7 +12,7 @@ const TabPane = Tabs.TabPane;
 
 const newTabs = ({storedKey, onChangeTab}) => {
     return (
-        <Tabs activeKey={storedKey} onChange={(key) => { onChangeTab(key); }} type="card">
+        <Tabs activeKey={storedKey} onChange={(key) => { onChangeTab(key); }} type="card" tabBarStyle={{ fontWeight: "bold" }}>
             <TabPane tab={<FormattedMessage id="tab.ability" defaultMessage="Abilities" />} key="1"><Tech /></TabPane>
             <TabPane tab={<FormattedMessage id="tab.education" defaultMessage="Education" />} key="2"><Education /></TabPane>
             <TabPane tab={<FormattedMessage id="tab.work" defaultMessage="Work Experience" />} key="3"><Work /></TabPane>

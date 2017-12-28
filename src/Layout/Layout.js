@@ -12,12 +12,11 @@ const { Content, Footer, Sider, } = Layout;
 
 export default () => {
     return (
-        <Layout>
+        <Layout className="layout">
             <Sider
                 className="sider"
-                breakpoint="xs"
+                breakpoint="md"
                 collapsedWidth="0"
-                onCollapse={(collapsed, type) => { console.log(collapsed, type); }}
             >
                 <div className="logo">
                 <Avatar size="large" icon="user" />
@@ -34,7 +33,7 @@ export default () => {
                     </div>
                 </Content>
                 <Footer style={{ textAlign: 'center' }}>
-                    Ant Design ©2016 Created by Ant UED
+                    Created by Luminqi
                 </Footer>
             </Layout>
         </Layout>

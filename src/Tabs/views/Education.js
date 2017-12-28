@@ -1,6 +1,7 @@
 import React from 'react';
 import { Timeline, Icon } from 'antd';
 import { FormattedMessage } from 'react-intl';
+
 export default () =>{
     return (
         <Timeline className="timeline">

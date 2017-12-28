@@ -1,3 +1,7 @@
+.layout {
+    min-width: 900px;
+}
+
 .content {
     position: relative;
 }
@@ -63,10 +67,35 @@
     bottom: 0;
 }
 
+.msgicon-main {
+    transition: all 0.3s linear;
+}
+
+.msgicon-main:hover {
+    color: #1890ff;
+}
+
 .timeline {
-    padding: 72px;
+    padding: 56px 72px 72px;
+}
+
+.skill {
+    padding: 72px 72px 72px 56px;
 }
 
 .skill-btn {
-    margin: 16px 32px;
+    margin: 24px 32px;
+}
+
+.work-card {
+    margin: 72px;
+}
+
+.intro {
+    padding: 16px 72px 72px;
+    font-size: 16px;
+}
+
+.tabpane {
+    font-weight: bold;
 }

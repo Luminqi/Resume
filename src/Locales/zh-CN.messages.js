@@ -17,5 +17,14 @@ export default {
     'edu.graduate': "毕业(学士学位)",
     'edu.uk.enter': '进入英国诺森比亚大学',
     'edu.uk.award': '获得电气工程学院校长奖学金',
-    'edu.uk.graduate': '毕业(一等学士学位)'
+    'edu.uk.graduate': '毕业(一等学士学位)',
+    'work.title': '网盈科技服务有限公司苏州分公司',
+    'work.content1': '处理有线宽带和语音等上层网络设备故障',
+    'work.content2': '优化手机3G/4G信号',
+    'work.content3': '负责基站的开通和维护',
+    'intro.content1': '热爱前端和学习钻研新技术',
+    'intro.content2': '期待你的关注',
+    'msg.comment': '你的建议:',
+    'msg.name': '昵称:',
+    'msg.btn': '提交'
 };

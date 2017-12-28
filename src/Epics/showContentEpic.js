@@ -1,10 +1,7 @@
 import React from 'react';
 import { actions as dialogActions } from '../Dialog/';
 import { actionTypes as dialogActionTypes } from '../Dialog/';
-import { ofType } from 'redux-observable';
-import { ajax } from 'rxjs/observable/dom/ajax';
-import { switchMap, map, catchError } from 'rxjs/operators';
-import { of } from 'rxjs/observable/of';
+import { ofType, ajax, switchMap, map, catchError, of } from './Rxjs-operator.js';
 
 const handleResponse = (response) => {
     let repo = response.items[0];

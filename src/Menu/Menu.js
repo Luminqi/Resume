@@ -21,8 +21,10 @@ export default () => {
                 <FormattedMessage id="menu.mail" defaultMessage="424450414@qq.com" className="nav-text" />
             </Menu.Item>
             <Menu.Item key="6">
-                <Icon type="github" />
-                <FormattedMessage id="menu.github" defaultMessage="Luminqi" className="nav-text" />
+                <a href="https://github.com/Luminqi">
+                    <Icon type="github" />
+                    <FormattedMessage id="menu.github" defaultMessage="Luminqi" className="nav-text" />
+                </a>
             </Menu.Item>
         </Menu>
     );
